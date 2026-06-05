@@ -2,6 +2,7 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
+    <meta name="google-site-verification" content="DEIN_CODE_VON_GOOGLE" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sehenswürdigkeiten auf Ithaka - Die schönsten Orte</title>
     <style>
@@ -31,6 +32,8 @@
             color: var(--text-color);
             transition: background-color 0.3s, color 0.3s;
         }
+
+        /* --- NAVIGATION FÜR COMPUTER UND LAPTOPS --- */
         nav {
             background-color: var(--nav-bg);
             padding: 15px;
@@ -41,13 +44,15 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 15px;
+            gap: 20px;
+            flex-wrap: wrap;
         }
         nav a {
             color: white;
             text-decoration: none;
             font-weight: bold;
             transition: color 0.3s;
+            padding: 5px 10px;
         }
         nav a:hover {
             color: #94d2bd;
@@ -58,15 +63,40 @@
             background-color: #e9d8a6;
             color: #333;
             border: none;
-            padding: 8px 12px;
+            padding: 10px 16px;
             border-radius: 20px;
             cursor: pointer;
             font-weight: bold;
-            margin-left: 20px;
             transition: 0.2s;
+            white-space: nowrap;
         }
         .theme-toggle:hover {
             background-color: #ee9b00;
+        }
+
+        /* --- SPEZIELLES STYLING NUR FÜR HANDYS (Bildschirme unter 600px) --- */
+        @media (max-width: 600px) {
+            nav {
+                flex-direction: column; /* Links untereinander anordnen */
+                gap: 12px;
+                padding: 20px 10px;
+            }
+            
+            nav a {
+                display: block;
+                width: 100%;
+                font-size: 1.1rem;
+                padding: 8px 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Trennlinie */
+            }
+
+            .theme-toggle {
+                margin-top: 10px;
+                width: 90%; /* Schön breit auf dem Smartphone */
+                text-align: center;
+                padding: 12px;
+                font-size: 1rem;
+            }
         }
 
         header {
@@ -85,7 +115,7 @@
             padding: 0 20px;
         }
 
-        /* Das Kachel-Grid System mit auto-fill für gleich große Kacheln */
+        /* Kachel-Grid System (Kacheln bleiben immer gleich groß) */
         .sight-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -104,7 +134,6 @@
             cursor: pointer;
         }
 
-        /* Hover-Effekte */
         .sight-tile:hover {
             transform: scale(1.03);
             box-shadow: 0 8px 24px rgba(0,0,0,0.15);
@@ -179,7 +208,7 @@
         <div class="sight-grid">
 
             <div class="sight-tile" onclick="window.location.href='vathy.html'">
-                <img class="sight-image" src="bilder/vathy5.jpg" alt="Vathy Hauptstadt Ithaka">
+                <img class="sight-image" src="bilder/vathy_haupt.jpg" alt="Vathy Hauptstadt Ithaka">
                 <div class="tile-content">
                     <span class="badge">Inselhauptstadt</span>
                     <h2>Vathy & die Bucht von Molos</h2>
@@ -203,7 +232,7 @@
             </div>
 
             <div class="sight-tile" onclick="window.location.href='kathara.html'">
-                <img class="sight-image" src="bilder/kathara1.jpg" alt="Kathara Kloster">
+                <img class="sight-image" src="bilder/kathara.jpg" alt="Kathara Kloster">
                 <div class="tile-content">
                     <span class="badge">Kultur & Aussicht</span>
                     <h2>Kathara Kloster (Panagia)</h2>

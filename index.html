@@ -2,9 +2,9 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
+    <meta name="google-site-verification" content="DEIN_CODE_VON_GOOGLE" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ithaka - Die Heimat des Odysseus</title>
-    <meta name="google-site-verification" content="exM7i3Ho3qCOrVIHdzfzlZxC81HBF5ojgYMbFWL8HFE" />
+    <title>Ithaka Reiseführer - Auf den Spuren des Odysseus</title>
     <style>
         /* CSS Variablen für den Farbwechsel */
         :root {
@@ -12,14 +12,15 @@
             --text-color: #333;
             --card-bg: white;
             --nav-bg: #005f73;
+            --accent-color: #005f73;
         }
 
-        /* Die Farben, wenn der Dark Mode aktiv ist */
         [data-theme="dark"] {
             --bg-color: #1a1a1a;
             --text-color: #f4f9f9;
             --card-bg: #2d2d2d;
             --nav-bg: #003f4f;
+            --accent-color: #94d2bd;
         }
 
         body {
@@ -29,10 +30,77 @@
             padding: 0;
             background-color: var(--bg-color);
             color: var(--text-color);
-            transition: background-color 0.3s, color 0.3s; /* Macht den Wechsel flüssig */
+            transition: background-color 0.3s, color 0.3s;
         }
+
+        /* --- NAVIGATION FÜR COMPUTER UND LAPTOPS --- */
+        nav {
+            background-color: var(--nav-bg);
+            padding: 15px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+            padding: 5px 10px;
+        }
+        nav a:hover {
+            color: #94d2bd;
+        }
+
+        /* Der Dark Mode Button */
+        .theme-toggle {
+            background-color: #e9d8a6;
+            color: #333;
+            border: none;
+            padding: 10px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.2s;
+            white-space: nowrap;
+        }
+        .theme-toggle:hover {
+            background-color: #ee9b00;
+        }
+
+        /* --- SPEZIELLES STYLING NUR FÜR HANDYS (Bildschirme unter 600px) --- */
+        @media (max-width: 600px) {
+            nav {
+                flex-direction: column; /* Links untereinander anordnen */
+                gap: 12px;
+                padding: 20px 10px;
+            }
+            
+            nav a {
+                display: block;
+                width: 100%;
+                font-size: 1.1rem;
+                padding: 8px 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Trennlinie */
+            }
+
+            .theme-toggle {
+                margin-top: 10px;
+                width: 90%; /* Schön breit auf dem Smartphone */
+                text-align: center;
+                padding: 12px;
+                font-size: 1rem;
+            }
+        }
+
         header {
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
             color: white;
             text-align: center;
             padding: 100px 20px;
@@ -41,51 +109,16 @@
             font-size: 3rem;
             margin: 0;
         }
-        nav {
-            background-color: var(--nav-bg);
-            padding: 15px;
-            text-align: center;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 15px;
-        }
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        nav a:hover {
-            text-decoration: underline;
-        }
-
-        /* Der Dark Mode Button */
-        .theme-toggle {
-            background-color: #e9d8a6;
-            color: #333;
-            border: none;
-            padding: 8px 12px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-weight: bold;
-            margin-left: 20px;
-            transition: 0.2s;
-        }
-        .theme-toggle:hover {
-            background-color: #ee9b00;
-        }
-
         .container {
-            max-width: 900px;
-            margin: 30px auto;
+            max-width: 800px;
+            margin: 40px auto;
             padding: 0 20px;
         }
-        .card {
-            background: var(--card-bg);
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        .welcome-box {
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
         }
     </style>
 </head>
@@ -100,32 +133,24 @@
 
     <header>
         <h1>Willkommen auf Ithaka</h1>
-        <p>Erkunde die legendäre Insel im Ionischen Meer</p>
+        <p>Die legendäre Heimat des Odysseus – Ein unentdecktes Inselparadies</p>
     </header>
 
     <div class="container">
-        <section class="card">
-            <h2>Über die Insel</h2>
-            <p>Ithaka ist eine wunderschöne, grüne Insel in Griechenland. Sie ist weltbekannt aus der griechischen Mythologie als die Heimatinsel des Helden <strong>Odysseus</strong>, der zehn Jahre lang versuchte, nach dem Trojanischen Krieg hierher zurückzukehren.</p>
-        </section>
-
-        <section class="card">
-            <h2>Mythologie & Geschichte</h2>
-            <p>In Homers "Odyssee" wird die Insel als hügelig und wunderschön beschrieben. Heute zieht sie Besucher an, die abseits des Massentourismus die Ruhe, das glasklare Wasser und die traditionellen Dörfer wie Vathy suchen.</p>
-        </section>
+        <div class="welcome-box">
+            <h2>Erkunde die Insel</h2>
+            <p>Ithaka ist weit mehr als nur ein Mythos aus der alten Literatur. Mit ihren tiefblauen Buchten, den dichten grünen Wäldern und den malerischen, traditionellen Dörfern zieht sie jeden Besucher sofort in ihren Bann.</p>
+            <p>Nutze das Menü oben, um mehr über die spannende Geschichte der Insel zu erfahren oder entdecke direkt die schönsten Sehenswürdigkeiten und Strände im Überblick.</p>
+        </div>
     </div>
 
     <script>
         const modeBtn = document.getElementById('modeBtn');
-        
-        // Prüfen, ob der Nutzer schon mal den Darkmode aktiviert hatte
         if (localStorage.getItem('theme') === 'dark') {
             document.documentElement.setAttribute('data-theme', 'dark');
         }
-
         modeBtn.addEventListener('click', () => {
             let currentTheme = document.documentElement.getAttribute('data-theme');
-            
             if (currentTheme === 'dark') {
                 document.documentElement.removeAttribute('data-theme');
                 localStorage.setItem('theme', 'light');
