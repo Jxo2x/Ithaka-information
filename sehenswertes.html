@@ -2,7 +2,6 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <meta name="google-site-verification" content="DEIN_CODE_VON_GOOGLE" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sehenswürdigkeiten auf Ithaka - Die schönsten Orte</title>
     <style>
@@ -97,6 +96,18 @@
                 padding: 12px;
                 font-size: 1rem;
             }
+
+            /* Fix für die Handy-Bilder */
+            .sight-tile .sight-image {
+                height: 250px; /* Etwas niedriger auf Handys */
+            }
+
+            /* Text und Hintergrund auf dem Handy immer anzeigen */
+            .sight-tile .tile-content {
+                opacity: 1 !important;
+                transform: translateY(0) !important;
+                background: linear-gradient(to top, rgba(0,0,0,0.9) 40%, transparent);
+            }
         }
 
         header {
@@ -115,7 +126,7 @@
             padding: 0 20px;
         }
 
-        /* Kachel-Grid System (Kacheln bleiben immer gleich groß) */
+        /* Kachel-Grid System */
         .sight-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -151,7 +162,7 @@
             transform: scale(1.1);
         }
 
-        /* Textfeld-Einblendung im Grid */
+        /* Textfeld-Einblendung im Grid (für Computer) */
         .sight-tile .tile-content {
             position: absolute;
             bottom: 0;
@@ -208,7 +219,7 @@
         <div class="sight-grid">
 
             <div class="sight-tile" onclick="window.location.href='vathy.html'">
-                <img class="sight-image" src="bilder/vathy_haupt.jpg" alt="Vathy Hauptstadt Ithaka">
+                <img class="sight-image" src="bilder/vathy5.jpg" alt="Vathy Hauptstadt Ithaka">
                 <div class="tile-content">
                     <span class="badge">Inselhauptstadt</span>
                     <h2>Vathy & die Bucht von Molos</h2>
@@ -232,7 +243,7 @@
             </div>
 
             <div class="sight-tile" onclick="window.location.href='kathara.html'">
-                <img class="sight-image" src="bilder/kathara.jpg" alt="Kathara Kloster">
+                <img class="sight-image" src="bilder/kathara2.png" alt="Kathara Kloster">
                 <div class="tile-content">
                     <span class="badge">Kultur & Aussicht</span>
                     <h2>Kathara Kloster (Panagia)</h2>
