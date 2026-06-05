@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sehenswürdigkeiten auf Ithaka - Die schönsten Orte</title>
+    <style>
+        /* CSS Variablen für den Farbwechsel */
+        :root {
+            --bg-color: #f4f9f9;
+            --text-color: #333;
+            --card-bg: white;
+            --nav-bg: #005f73;
+            --accent-color: #005f73;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #1a1a1a;
+            --text-color: #f4f9f9;
+            --card-bg: #2d2d2d;
+            --nav-bg: #003f4f;
+            --accent-color: #94d2bd;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: background-color 0.3s, color 0.3s;
+        }
+        nav {
+            background-color: var(--nav-bg);
+            padding: 15px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #94d2bd;
+        }
+
+        /* Der Dark Mode Button */
+        .theme-toggle {
+            background-color: #e9d8a6;
+            color: #333;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-left: 20px;
+            transition: 0.2s;
+        }
+        .theme-toggle:hover {
+            background-color: #ee9b00;
+        }
+
+        header {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+        }
+        header h1 {
+            font-size: 2.8rem;
+            margin: 0;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* Das Kachel-Grid System mit auto-fill für gleich große Kacheln */
+        .sight-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        /* Die einzelne animierte Kachel */
+        .sight-tile {
+            position: relative;
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        /* Hover-Effekte */
+        .sight-tile:hover {
+            transform: scale(1.03);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+        }
+
+        .sight-tile .sight-image {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .sight-tile:hover .sight-image {
+            transform: scale(1.1);
+        }
+
+        /* Textfeld-Einblendung im Grid */
+        .sight-tile .tile-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 20px;
+            background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
+            color: white;
+            opacity: 0;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            transform: translateY(15px);
+        }
+
+        .sight-tile:hover .tile-content {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .sight-tile .badge {
+            display: inline-block;
+            background-color: #94d2bd;
+            color: #005f73;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .sight-tile h2 {
+            margin: 0;
+            font-size: 1.6rem;
+            line-height: 1.2;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html">← Zurück zur Startseite</a>
+        <a href="geschichte.html">Geschichte</a>
+        <a href="sehenswertes.html">Sehenswürdigkeiten</a>
+        <button class="theme-toggle" id="modeBtn">🌓 Modus wechseln</button>
+    </nav>
+
+    <header>
+        <h1>Sehenswertes auf Ithaka</h1>
+        <p>Entdecke magische Dörfer, idyllische Häfen und traumhafte Strände</p>
+    </header>
+
+    <div class="container">
+        
+        <div class="sight-grid">
+
+            <div class="sight-tile" onclick="window.location.href='vathy.html'">
+                <img class="sight-image" src="bilder/vathy5.jpg" alt="Vathy Hauptstadt Ithaka">
+                <div class="tile-content">
+                    <span class="badge">Inselhauptstadt</span>
+                    <h2>Vathy & die Bucht von Molos</h2>
+                </div>
+            </div>
+
+            <div class="sight-tile" onclick="window.location.href='kioni.html'">
+                <img class="sight-image" src="bilder/kioni1.jpg" alt="Malerisches Fischerdorf Kioni">
+                <div class="tile-content">
+                    <span class="badge">Fischerdorf & Geheimtipp</span>
+                    <h2>Das malerische Dorf Kioni</h2>
+                </div>
+            </div>
+
+            <div class="sight-tile" onclick="window.location.href='gidaki.html'">
+                <img class="sight-image" src="bilder/gidaki1.jpg" alt="Gidaki Strand Ithaka">
+                <div class="tile-content">
+                    <span class="badge">Naturparadies</span>
+                    <h2>Der paradiesische Gidaki Strand</h2>
+                </div>
+            </div>
+
+            <div class="sight-tile" onclick="window.location.href='kathara.html'">
+                <img class="sight-image" src="bilder/kathara1.jpg" alt="Kathara Kloster">
+                <div class="tile-content">
+                    <span class="badge">Kultur & Aussicht</span>
+                    <h2>Kathara Kloster (Panagia)</h2>
+                </div>
+            </div>
+
+            <div class="sight-tile" onclick="window.location.href='anogi.html'">
+                <img class="sight-image" src="bilder/anogi1.jpg" alt="Anogi Bergdorf">
+                <div class="tile-content">
+                    <span class="badge">Bergdorf & Naturmonumente</span>
+                    <h2>Anogi & die Monolithen</h2>
+                </div>
+            </div>
+
+            <div class="sight-tile" onclick="window.location.href='frikes.html'">
+                <img class="sight-image" src="bilder/frikes1.jpg" alt="Frikes Hafendorf">
+                <div class="tile-content">
+                    <span class="badge">Hafendorf & Windmühlen</span>
+                    <h2>Das idyllische Dorf Frikes</h2>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+        // JavaScript für den Dark Mode
+        const modeBtn = document.getElementById('modeBtn');
+        
+        if (localStorage.getItem('theme') === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        }
+
+        modeBtn.addEventListener('click', () => {
+            let currentTheme = document.documentElement.getAttribute('data-theme');
+            if (currentTheme === 'dark') {
+                document.documentElement.removeAttribute('data-theme');
+                localStorage.setItem('theme', 'light');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+    </script>
+
+</body>
+</html>

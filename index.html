@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ithaka - Die Heimat des Odysseus</title>
+    <style>
+        /* CSS Variablen für den Farbwechsel */
+        :root {
+            --bg-color: #f4f9f9;
+            --text-color: #333;
+            --card-bg: white;
+            --nav-bg: #005f73;
+        }
+
+        /* Die Farben, wenn der Dark Mode aktiv ist */
+        [data-theme="dark"] {
+            --bg-color: #1a1a1a;
+            --text-color: #f4f9f9;
+            --card-bg: #2d2d2d;
+            --nav-bg: #003f4f;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: background-color 0.3s, color 0.3s; /* Macht den Wechsel flüssig */
+        }
+        header {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+        }
+        header h1 {
+            font-size: 3rem;
+            margin: 0;
+        }
+        nav {
+            background-color: var(--nav-bg);
+            padding: 15px;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Der Dark Mode Button */
+        .theme-toggle {
+            background-color: #e9d8a6;
+            color: #333;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-left: 20px;
+            transition: 0.2s;
+        }
+        .theme-toggle:hover {
+            background-color: #ee9b00;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+        .card {
+            background: var(--card-bg);
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html">Startseite</a>
+        <a href="geschichte.html">Geschichte</a>
+        <a href="sehenswertes.html">Sehenswürdigkeiten</a>
+        <button class="theme-toggle" id="modeBtn">🌓 Modus wechseln</button>
+    </nav>
+
+    <header>
+        <h1>Willkommen auf Ithaka</h1>
+        <p>Erkunde die legendäre Insel im Ionischen Meer</p>
+    </header>
+
+    <div class="container">
+        <section class="card">
+            <h2>Über die Insel</h2>
+            <p>Ithaka ist eine wunderschöne, grüne Insel in Griechenland. Sie ist weltbekannt aus der griechischen Mythologie als die Heimatinsel des Helden <strong>Odysseus</strong>, der zehn Jahre lang versuchte, nach dem Trojanischen Krieg hierher zurückzukehren.</p>
+        </section>
+
+        <section class="card">
+            <h2>Mythologie & Geschichte</h2>
+            <p>In Homers "Odyssee" wird die Insel als hügelig und wunderschön beschrieben. Heute zieht sie Besucher an, die abseits des Massentourismus die Ruhe, das glasklare Wasser und die traditionellen Dörfer wie Vathy suchen.</p>
+        </section>
+    </div>
+
+    <script>
+        const modeBtn = document.getElementById('modeBtn');
+        
+        // Prüfen, ob der Nutzer schon mal den Darkmode aktiviert hatte
+        if (localStorage.getItem('theme') === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        }
+
+        modeBtn.addEventListener('click', () => {
+            let currentTheme = document.documentElement.getAttribute('data-theme');
+            
+            if (currentTheme === 'dark') {
+                document.documentElement.removeAttribute('data-theme');
+                localStorage.setItem('theme', 'light');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+    </script>
+
+</body>
+</html>
