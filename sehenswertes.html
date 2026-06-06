@@ -76,7 +76,7 @@
         /* --- SPEZIELLES STYLING NUR FÜR HANDYS (Bildschirme unter 600px) --- */
         @media (max-width: 600px) {
             nav {
-                flex-direction: column; /* Links untereinander anordnen */
+                flex-direction: column; 
                 gap: 12px;
                 padding: 20px 10px;
             }
@@ -86,12 +86,12 @@
                 width: 100%;
                 font-size: 1.1rem;
                 padding: 8px 0;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Trennlinie */
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
             }
 
             .theme-toggle {
                 margin-top: 10px;
-                width: 90%; /* Schön breit auf dem Smartphone */
+                width: 90%; 
                 text-align: center;
                 padding: 12px;
                 font-size: 1rem;
@@ -99,7 +99,7 @@
 
             /* Fix für die Handy-Bilder */
             .sight-tile .sight-image {
-                height: 250px; /* Etwas niedriger auf Handys */
+                height: 250px; 
             }
 
             /* Text und Hintergrund auf dem Handy immer anzeigen */
@@ -219,7 +219,7 @@
         <div class="sight-grid">
 
             <div class="sight-tile" onclick="window.location.href='vathy.html'">
-                <img class="sight-image" src="bilder/vathy5.jpg" alt="Vathy Hauptstadt Ithaka">
+                <img class="sight-image" src="bilder/vathy_haupt.jpg" alt="Vathy Hauptstadt Ithaka">
                 <div class="tile-content">
                     <span class="badge">Inselhauptstadt</span>
                     <h2>Vathy & die Bucht von Molos</h2>
@@ -243,7 +243,7 @@
             </div>
 
             <div class="sight-tile" onclick="window.location.href='kathara.html'">
-                <img class="sight-image" src="bilder/kathara2.png" alt="Kathara Kloster">
+                <img class="sight-image" src="bilder/kathara.jpg" alt="Kathara Kloster">
                 <div class="tile-content">
                     <span class="badge">Kultur & Aussicht</span>
                     <h2>Kathara Kloster (Panagia)</h2>
@@ -266,12 +266,19 @@
                 </div>
             </div>
 
+            <div class="sight-tile" onclick="window.location.href='stavros.html'">
+                <img class="sight-image" src="bilder/stavros1.jpg" alt="Zentrum von Stavros">
+                <div class="tile-content">
+                    <span class="badge">Das Zentrum des Nordens</span>
+                    <h2>Das historische Dorf Stavros</h2>
+                </div>
+            </div>
+
         </div>
 
     </div>
 
     <script>
-        // JavaScript für den Dark Mode
         const modeBtn = document.getElementById('modeBtn');
         
         if (localStorage.getItem('theme') === 'dark') {
