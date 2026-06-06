@@ -3,55 +3,195 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anogi Bergdorf - Ithaka</title>
+    <title>Anogi - Archäologie auf Ithaka</title>
     <style>
-        body { font-family: 'Segoe UI', sans-serif; line-height: 1.6; margin: 0; padding: 20px; background-color: #f4f9f9; color: #333; }
-        .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
-        h1 { color: #005f73; }
-        .back-btn { display: inline-block; margin-bottom: 20px; color: #005f73; text-decoration: none; font-weight: bold; }
+        :root {
+            --bg-color: #f4f9f9;
+            --text-color: #333;
+            --card-bg: white;
+            --nav-bg: #005f73;
+            --accent-color: #005f73;
+        }
 
-        /* Galerie & Lightbox CSS */
-        .gallery-title { margin-top: 40px; color: #005f73; font-size: 1.4rem; border-bottom: 2px solid #94d2bd; padding-bottom: 5px; }
-        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 15px; }
-        .gallery-item { width: 100%; height: 150px; object-fit: cover; border-radius: 6px; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; }
-        .gallery-item:hover { transform: scale(1.04); box-shadow: 0 4px 10px rgba(0,0,0,0.15); }
-        .lightbox { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.9); z-index: 2000; justify-content: center; align-items: center; }
-        .lightbox-img { max-width: 85%; max-height: 85%; border-radius: 4px; box-shadow: 0 0 20px rgba(255,255,255,0.1); animation: fadeIn 0.3s ease; }
-        .lightbox-close { position: absolute; top: 20px; right: 30px; color: white; font-size: 40px; font-weight: bold; cursor: pointer; user-select: none; }
-        .lightbox-close:hover { color: #94d2bd; }
-        @keyframes fadeIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+        [data-theme="dark"] {
+            --bg-color: #1a1a1a;
+            --text-color: #f4f9f9;
+            --card-bg: #2d2d2d;
+            --nav-bg: #003f4f;
+            --accent-color: #94d2bd;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        nav {
+            background-color: var(--nav-bg);
+            padding: 15px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+            padding: 5px 10px;
+        }
+        nav a:hover {
+            color: #94d2bd;
+        }
+
+        @media (max-width: 600px) {
+            nav {
+                flex-direction: column; 
+                gap: 12px;
+                padding: 20px 10px;
+            }
+            nav a {
+                display: block;
+                width: 100%;
+                font-size: 1.1rem;
+                padding: 8px 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
+            }
+        }
+
+        header {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('bilder/anogi1.jpg') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+        }
+        header h1 {
+            font-size: 3rem;
+            margin: 0;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        
+        .info-section {
+            background-color: var(--card-bg);
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: var(--accent-color);
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 8px;
+            margin-top: 0;
+        }
+
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .gallery-item {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item img:hover {
+            transform: scale(1.05);
+        }
+
+        .back-button {
+            display: inline-block;
+            background-color: var(--nav-bg);
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-button:hover {
+            background-color: #94d2bd;
+            color: #005f73;
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <a class="back-btn" href="sehenswertes.html">← Zurück zur Übersicht</a>
-        <h1>Das Bergdorf Anogi & die Monolithen</h1>
-        <p>Anogi ist eines der ältesten Dörfer der Insel und liegt einsam in den Bergen. Die Attraktion hier sind die "Araklis"-Monolithen: riesige, bis zu 9 Meter hohe Felsformationen, die wie von Riesen Hand in der Landschaft verstreut wirken. Zudem steht im Dorf eine faszinierende byzantinische Kirche aus dem 12. Jahrhundert mit wunderschönen, alten Wandmalereien.</p>
-        
-        <h2 class="gallery-title">Bildergalerie (Klicke auf ein Bild)</h2>
-        <div class="gallery-grid">
-            <img class="gallery-item" src="bilder/anogi1.jpg" alt="Monolithen Felsen">
-            <img class="gallery-item" src="bilder/anogi2.jpg" alt="Altes Bergdorf">
-            <img class="gallery-item" src="bilder/anogi3.webp" alt="Kirche im Gebirge">
-        </div>
-    </div>
 
-    <div class="lightbox" id="lightboxOverlay">
-        <span class="lightbox-close" id="closeBtn">&times;</span>
-        <img class="lightbox-img" id="lightboxImage" src="" alt="Großansicht">
+    <nav>
+        <a href="index.html">Startseite</a>
+        <a href="geschichte.html">Geschichte</a>
+        <a href="sehenswertes.html">Sehenswürdigkeiten</a>
+    </nav>
+
+    <header>
+        <h1>Das Bergdorf Anogi</h1>
+        <p>Ein mystischer Ort voller Geschichte und gewaltiger Naturphänomene</p>
+    </header>
+
+    <div class="container">
+        
+        <div class="info-section">
+            <h2>Eine der ältesten Siedlungen</h2>
+            <p>Anogi liegt hoch oben auf dem Berg Nirito auf rund 500 Metern Höhe und gehört zu den ältesten Siedlungen Ithakas. Im Zentrum des fast verlassenen, aber faszinierenden Dorfes steht die beeindruckende Kirche der Panagia, die aus dem 12. Jahrhundert stammt und im Inneren mit wunderschönen, jahrhundertealten byzantinischen Fresken geschmückt ist.</p>
+        </div>
+
+        <div class="info-section">
+            <h2>Die gigantischen Monolithen (Araklis)</h2>
+            <p>Die größte Attraktion von Anogi liegt jedoch in der kargen Landschaft, die das Dorf umgibt: Überall ragen riesige, bizarr geformte Felsmonolithen aus dem Boden. Der bekannteste von ihnen ist der <i>Araklis</i>, ein imposanter, freistehender Felsen von über 9 Metern Höhe, der wie eine gewaltige Skulptur aus der Erde emporragt.</p>
+            
+            <div class="image-gallery">
+                <div class="gallery-item">
+                    <img src="bilder/anogi1.jpg" alt="Der Araklis Monolith">
+                </div>
+                <div class="gallery-item">
+                    <img src="bilder/anogi2.jpg" alt="Kirche von Anogi">
+                </div>
+                <div class="gallery-item">
+                    <img src="bilder/anogi3.webp" alt="Berglandschaft Anogi">
+                </div>
+            </div>
+        </div>
+
+        <center>
+            <a href="sehenswertes.html" class="back-button">← Zurück zur Übersicht</a>
+        </center>
+
     </div>
 
     <script>
-        const galleryItems = document.querySelectorAll('.gallery-item');
-        const lightbox = document.getElementById('lightboxOverlay');
-        const lightboxImg = document.getElementById('lightboxImage');
-        const closeBtn = document.getElementById('closeBtn');
-
-        galleryItems.forEach(item => {
-            item.addEventListener('click', () => { lightboxImg.src = item.src; lightbox.style.display = 'flex'; });
-        });
-        closeBtn.addEventListener('click', () => { lightbox.style.display = 'none'; });
-        lightbox.addEventListener('click', (e) => { if (e.target !== lightboxImg) lightbox.style.display = 'none'; });
+        if (localStorage.getItem('theme') === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        }
     </script>
+
 </body>
 </html>
