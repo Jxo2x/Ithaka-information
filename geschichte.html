@@ -71,7 +71,59 @@
             background-color: #ee9b00;
         }
 
-        @media (max-width: 600px) {
+        header {
+            /* Dein eigenes Bild aus dem bilder-Ordner ist hier fest eingetragen */
+            background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('bilder/geschichte_haupt.jpg') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+        }
+        header h1 {
+            font-size: 2.8rem;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .history-layout {
+            display: flex;
+            gap: 30px;
+            align-items: flex-start;
+        }
+
+        .left-column {
+            flex: 1.5;
+        }
+
+        .right-column {
+            flex: 1;
+        }
+
+        .history-content {
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: var(--accent-color);
+            margin-top: 0;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 8px;
+        }
+
+        @media (max-width: 800px) {
+            .history-layout {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
             nav {
                 flex-direction: column; 
                 gap: 12px;
@@ -94,29 +146,6 @@
                 font-size: 1rem;
             }
         }
-
-        header {
-           /* Hier wird jetzt dein eigenes Bild aus deinem Bilder-Ordner geladen: */
-            background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('bilder/geschichte_haupt.jpg') no-repeat center center/cover;
-            color: white;
-            text-align: center;
-            padding: 80px 20px;
-        }
-        header h1 {
-            font-size: 2.8rem;
-            margin: 0;
-        }
-        .container {
-            max-width: 800px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-        .history-content {
-            background-color: var(--card-bg);
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-        }
     </style>
 </head>
 <body>
@@ -134,12 +163,26 @@
     </header>
 
     <div class="container">
-        <div class="history-content">
-            <h2>Der Mythos von Odysseus</h2>
-            <p>In der griechischen Mythologie ist Ithaka weltberühmt als das Königreich von Odysseus, dem Helden aus Homers Epos „Die Odyssee“. Nach dem Trojanischen Krieg irrte Odysseus zehn Jahre lang über die Weltmeere, getrieben von Abenteuern und Gefahren, bevor er endlich in seine geliebte Heimat Ithaka zurückkehren konnte.</p>
+        <div class="history-layout">
             
-            <h2>Archäologie und Realität</h2>
-            <p>Bis heute beschäftigen sich Forscher mit der Frage, ob das antike Ithaka aus den Erzählungen genau mit der heutigen Insel übereinstimmt. Zahlreiche Ausgrabungen im Norden der Insel, wie etwa in der Loizos-Höhle, brachten antike Masken und Inschriften zum Vorschein, die beweisen, dass die Insel schon vor Jahrtausenden ein wichtiges kulturelles Zentrum war.</p>
+            <div class="left-column">
+                <div class="history-content">
+                    <h2>Der Mythos von Odysseus</h2>
+                    <p>In der griechischen Mythologie ist Ithaka weltberühmt als die geliebte Heimat und das Königreich von Odysseus, dem scharfsinnigen Helden aus Homers weltbekanntem Epos „Die Odyssee“. Odysseus, bekannt für seine Listen – wie das berühmte Trojanische Pferd –, brach auf, um im Trojanischen Krieg zu kämpfen. Nach dem Fall Trojas sollte seine Heimreise jedoch zu einer der größten Abenteuergeschichten der Menschheit werden.</p>
+                    <p>Zehn lange Jahre lang irrte er über die Weltmeere, getrieben vom Zorn des Meeresgottes Poseidon. Auf seiner Irrfahrt musste er sich schrecklichen Gefahren stellen: Er bezwang den einäugigen Zyklopen Polyphem, widerstand dem betörenden, aber tödlichen Gesang der Sirenen, entkam den Meeresungeheuern Skylla und Charybdis und verbrachte Jahre in Gefangenschaft bei der Nymphe Kalypso auf der Insel Ogygia.</p>
+                    <p>Während seiner zwanzigjährigen Abwesenheit (zehn Jahre Krieg und zehn Jahre Irrfahrt) wurde sein Palast auf Ithaka von unverschämten Freiern belagert. Diese glaubten, Odysseus sei tot, verschwendeten seinen Besitz und bedrängten seine treue Ehefrau Penelope, einen von ihnen zu heiraten. Penelope erfand jedoch eine List: Sie erklärte, sich erst zu entscheiden, wenn sie ein Totenhemd für Odysseus’ alten Vater fertig gewebt habe. Nachts trennte sie das am Tag Gewebte heimlich wieder auf.</p>
+                    <p>Als Odysseus schließlich als Bettler verkleidet nach Ithaka zurückkehrte, erkannte ihn zunächst nur sein alter, treuer Hund Argos. Mit Hilfe seines Sohnes Telemachos und einem legendären Bogen-Wettstreit gelang es Odysseus schließlich, die Freier zu vertreiben, seine Identität zu offenbaren und den Thron seiner geliebten, schroffen Inselheimat wieder einzunehmen.</p>
+                </div>
+            </div>
+
+            <div class="right-column">
+                <div class="history-content">
+                    <h2>Archäologie und Realität</h2>
+                    <p>Bis heute beschäftigen sich Historiker und Archäologen weltweit mit der spannenden Frage, ob das antike Ithaka aus den Erzählungen Homers exakt mit der heutigen, modernen Insel übereinstimmt.</p>
+                    <p>Zahlreiche wissenschaftliche Ausgrabungen, vor allem im Norden der Insel, brachten bedeutende Funde ans Tageslicht. In der Loizos-Höhle nahe der Bucht von Polis entdeckte man antike Bronzedreifüße, Maskenfragmente und Inschriften mit der Aufschrift „Gelübde an Odysseus“. Diese Funde beweisen eindrucksvoll, dass Odysseus auf dieser Insel schon vor Jahrtausenden wie ein Gott oder Halbgott verehrt wurde und Ithaka ein bedeutendes kulturelles und religiöses Zentrum der Antike war.</p>
+                </div>
+            </div>
+
         </div>
     </div>
 
