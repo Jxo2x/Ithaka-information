@@ -70,11 +70,18 @@
             transition: 0.2s;
             white-space: nowrap;
         }
-        @media (hover: hover) {
+       /* Für PCs: Färbt den Button, wenn die Maus darüber schwebt */
+@media (hover: hover) {
     .theme-toggle:hover {
         background-color: #ee9b00;
     }
-      }
+}
+
+/* Für Handys & PCs: Färbt den Button genau in dem Moment, in dem man draufdrückt */
+.theme-toggle:active {
+    background-color: #ee9b00;
+    transform: scale(0.98); /* Macht den Button beim Drücken minimal kleiner (cooler Klick-Effekt!) */
+}
 
         /* --- SPEZIELLES STYLING NUR FÜR HANDYS (Bildschirme unter 600px) --- */
         @media (max-width: 600px) {
