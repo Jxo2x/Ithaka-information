@@ -55,6 +55,26 @@
             color: #94d2bd;
         }
 
+        /* NEU: CSS für den Modus-Button im Menü */
+        .theme-toggle-btn {
+            background: rgba(255, 255, 255, 0.15);
+            border: none;
+            color: white;
+            padding: 8px 15px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .theme-toggle-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.05);
+        }
+
         @media (max-width: 600px) {
             nav {
                 flex-direction: column; 
@@ -67,6 +87,10 @@
                 font-size: 1.1rem;
                 padding: 8px 0;
                 border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
+            }
+            .theme-toggle-btn {
+                width: auto;
+                margin-top: 5px;
             }
         }
 
@@ -106,7 +130,7 @@
             margin-top: 0;
         }
 
-        /* CSS für die neuen Teaser-Karten */
+        /* Teaser-Karten */
         .teaser-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -157,7 +181,7 @@
             padding-top: 15px;
         }
 
-        /* CSS für die Faktenbox */
+        /* Faktenbox */
         .fact-box {
             border-left: 5px solid var(--accent-color);
         }
@@ -171,7 +195,6 @@
             line-height: 1.6;
         }
 
-        /* Responsive Design fürs Handy */
         @media (max-width: 768px) {
             .teaser-grid {
                 grid-template-columns: 1fr;
@@ -185,6 +208,9 @@
         <a href="index.html">Startseite</a>
         <a href="geschichte.html">Geschichte</a>
         <a href="sehenswertes.html">Sehenswürdigkeiten</a>
+        <button class="theme-toggle-btn" id="theme-toggle">
+            <span id="theme-icon">🌙</span> Modus
+        </button>
     </nav>
 
     <header>
@@ -214,7 +240,7 @@
             </a>
 
             <a href="sehenswertes.html" class="teaser-card">
-                <div class="teaser-image" style="background-image: url('bilder/vathy5.jpg');"></div>
+                <div class="teaser-image" style="background-image: url('bilder/kioni: 5px;.jpg');"></div>
                 <div class="teaser-content">
                     <h3>Sehenswürdigkeiten</h3>
                     <p>Erkunde malerische Fischerdörfer, traumhafte Naturbuchten, antike Ruinen und geschichtsträchtige Klöster.</p>
@@ -236,10 +262,33 @@
     </div>
 
     <script>
-        // Prüft beim Laden der Seite, ob der Dark Mode im Browser-Speicher aktiv ist
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+
+        // 1. Prüfen, ob bereits ein Modus im Speicher liegt
         if (localStorage.getItem('theme') === 'dark') {
             document.documentElement.setAttribute('data-theme', 'dark');
+            themeIcon.textContent = '☀️'; // Zeige Sonne, wenn es dunkel ist
+        } else {
+            themeIcon.textContent = '🌙'; // Zeige Mond, wenn es hell ist
         }
+
+        // 2. Klick-Funktion zum Wechseln des Modus
+        themeToggleBtn.addEventListener('click', () => {
+            let currentTheme = document.documentElement.getAttribute('data-theme');
+            
+            if (currentTheme === 'dark') {
+                // Wechsel zu Hell
+                document.documentElement.removeAttribute('data-theme');
+                localStorage.setItem('theme', 'light');
+                themeIcon.textContent = '🌙';
+            } else {
+                // Wechsel zu Dunkel
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+                themeIcon.textContent = '☀️';
+            }
+        });
     </script>
 
 </body>
