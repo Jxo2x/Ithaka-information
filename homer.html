@@ -102,7 +102,6 @@
             margin-top: 0;
         }
 
-        /* HIER IST DIE ANPASSUNG FÜR DIE 3 BILDER */
         .image-gallery {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -120,6 +119,7 @@
             border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            cursor: pointer; /* Zeigt eine Hand beim Drüberfahren, damit man sieht, dass es klickbar ist */
         }
 
         .gallery-item img {
@@ -148,6 +148,52 @@
         .back-button:hover {
             background-color: #94d2bd;
             color: #005f73;
+        }
+
+        /* NEU: CSS für das vergrößerte Bild (Lightbox-Overlay) */
+        .lightbox-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .lightbox-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .lightbox-overlay img {
+            max-width: 90%;
+            max-height: 85%;
+            border-radius: 4px;
+            box-shadow: 0 0 20px rgba(255,255,255,0.1);
+            transform: scale(0.95);
+            transition: transform 0.3s ease;
+        }
+
+        .lightbox-overlay.active img {
+            transform: scale(1);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            user-select: none;
         }
     </style>
 </head>
@@ -194,10 +240,38 @@
 
     </div>
 
+    <div class="lightbox-overlay" id="lightbox">
+        <span class="lightbox-close" id="lightbox-close">&times;</span>
+        <img src="" alt="Vergrößerte Ansicht" id="lightbox-img">
+    </div>
+
     <script>
+        // Bestehender Code für den Dark Mode Speicher
         if (localStorage.getItem('theme') === 'dark') {
             document.documentElement.setAttribute('data-theme', 'dark');
         }
+
+        // NEU: JavaScript für die Klick-Vergrößerung
+        const galleryItems = document.querySelectorAll('.gallery-item img');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxClose = document.getElementById('lightbox-close');
+
+        // Öffnen bei Klick auf ein Bild
+        galleryItems.forEach(img => {
+            img.addEventListener('click', () => {
+                lightboxImg.src = img.src;
+                lightboxImg.alt = img.alt;
+                lightbox.classList.add('active');
+            });
+        });
+
+        // Schließen bei Klick auf das X oder irgendwo in den schwarzen Hintergrund
+        lightbox.addEventListener('click', (e) => {
+            if (e.target !== lightboxImg) {
+                lightbox.classList.remove('active');
+            }
+        });
     </script>
 
 </body>
