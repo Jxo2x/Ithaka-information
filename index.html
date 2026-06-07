@@ -55,24 +55,31 @@
             color: #94d2bd;
         }
 
-        /* NEU: CSS für den Modus-Button im Menü */
+        /* Schwebender Modus-Wechseln-Button wie auf den anderen Seiten */
         .theme-toggle-btn {
-            background: rgba(255, 255, 255, 0.15);
-            border: none;
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background-color: var(--nav-bg);
             color: white;
-            padding: 8px 15px;
+            border: none;
+            padding: 12px 20px;
+            font-family: inherit;
             font-size: 1rem;
             font-weight: bold;
-            border-radius: 20px;
+            border-radius: 25px;
             cursor: pointer;
-            transition: background 0.3s, transform 0.2s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            z-index: 9999;
             display: flex;
             align-items: center;
-            gap: 5px;
+            gap: 8px;
+            transition: transform 0.2s, background-color 0.3s;
         }
+        
         .theme-toggle-btn:hover {
-            background: rgba(255, 255, 255, 0.3);
             transform: scale(1.05);
+            background-color: var(--accent-color);
         }
 
         @media (max-width: 600px) {
@@ -87,10 +94,6 @@
                 font-size: 1.1rem;
                 padding: 8px 0;
                 border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
-            }
-            .theme-toggle-btn {
-                width: auto;
-                margin-top: 5px;
             }
         }
 
@@ -208,10 +211,11 @@
         <a href="index.html">Startseite</a>
         <a href="geschichte.html">Geschichte</a>
         <a href="sehenswertes.html">Sehenswürdigkeiten</a>
-        <button class="theme-toggle-btn" id="theme-toggle">
-            <span id="theme-icon">🌙</span> Modus
-        </button>
     </nav>
+
+    <button class="theme-toggle-btn" id="theme-toggle">
+        <span id="theme-icon">🌙</span> Modus wechseln
+    </button>
 
     <header>
         <h1>Ithaka</h1>
@@ -240,7 +244,7 @@
             </a>
 
             <a href="sehenswertes.html" class="teaser-card">
-                <div class="teaser-image" style="background-image: url('bilder/kioni: 5px;.jpg');"></div>
+                <div class="teaser-image" style="background-image: url('bilder/vathy5.jpg');"></div>
                 <div class="teaser-content">
                     <h3>Sehenswürdigkeiten</h3>
                     <p>Erkunde malerische Fischerdörfer, traumhafte Naturbuchten, antike Ruinen und geschichtsträchtige Klöster.</p>
@@ -268,9 +272,9 @@
         // 1. Prüfen, ob bereits ein Modus im Speicher liegt
         if (localStorage.getItem('theme') === 'dark') {
             document.documentElement.setAttribute('data-theme', 'dark');
-            themeIcon.textContent = '☀️'; // Zeige Sonne, wenn es dunkel ist
+            themeIcon.textContent = '☀️';
         } else {
-            themeIcon.textContent = '🌙'; // Zeige Mond, wenn es hell ist
+            themeIcon.textContent = '🌙';
         }
 
         // 2. Klick-Funktion zum Wechseln des Modus
@@ -278,12 +282,10 @@
             let currentTheme = document.documentElement.getAttribute('data-theme');
             
             if (currentTheme === 'dark') {
-                // Wechsel zu Hell
                 document.documentElement.removeAttribute('data-theme');
                 localStorage.setItem('theme', 'light');
                 themeIcon.textContent = '🌙';
             } else {
-                // Wechsel zu Dunkel
                 document.documentElement.setAttribute('data-theme', 'dark');
                 localStorage.setItem('theme', 'dark');
                 themeIcon.textContent = '☀️';
