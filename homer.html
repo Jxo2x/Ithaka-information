@@ -102,11 +102,18 @@
             margin-top: 0;
         }
 
+        /* HIER IST DIE ANPASSUNG FÜR DIE 3 BILDER */
         .image-gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 20px;
             margin-top: 25px;
+        }
+
+        @media (max-width: 768px) {
+            .image-gallery {
+                grid-template-columns: 1fr;
+            }
         }
 
         .gallery-item {
@@ -161,7 +168,7 @@
         
         <div class="info-section">
             <h2>Die Ausgrabungsstätte</h2>
-            <p>Die sogenannte „Schule des Homer“ (lokal auch bekannt als <i>Agios Athanasios</i>) is eine faszinierende archäologische Fundstätte im Norden von Ithaka. Sie liegt nur wenige Kilometer außerhalb von Stavros. Archäologen haben hier Überreste eines großen, mehrstöckigen Gebäudekomplexes aus antiker Zeit freigelegt, der direkt in den Fels gehauen wurde.</p>
+            <p>Die sogenannte „Schule des Homer“ (lokal auch bekannt als <i>Agios Athanasios</i>) ist eine faszinierende archäologische Fundstätte im Norden von Ithaka. Sie liegt nur wenige Kilometer außerhalb von Stavros. Archäologen haben hier Überreste eines großen, mehrstöckigen Gebäudekomplexes aus antiker Zeit freigelegt, der direkt in den Fels gehauen wurde.</p>
         </div>
 
         <div class="info-section">
