@@ -2,11 +2,9 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <meta name="google-site-verification" content="DEIN_CODE_VON_GOOGLE" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ithaka Reiseführer - Auf den Spuren des Odysseus</title>
+    <title>Archäologie auf Ithaka - Startseite</title>
     <style>
-        /* CSS Variablen für den Farbwechsel */
         :root {
             --bg-color: #f4f9f9;
             --text-color: #333;
@@ -33,7 +31,6 @@
             transition: background-color 0.3s, color 0.3s;
         }
 
-        /* --- NAVIGATION FÜR COMPUTER UND LAPTOPS --- */
         nav {
             background-color: var(--nav-bg);
             padding: 15px;
@@ -58,76 +55,127 @@
             color: #94d2bd;
         }
 
-        /* Der Dark Mode Button */
-        .theme-toggle {
-            background-color: #e9d8a6;
-            color: #333;
-            border: none;
-            padding: 10px 16px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: 0.2s;
-            white-space: nowrap;
-        }
-       /* Für PCs: Färbt den Button, wenn die Maus darüber schwebt */
-@media (hover: hover) {
-    .theme-toggle:hover {
-        background-color: #ee9b00;
-    }
-}
-
-/* Für Handys & PCs: Färbt den Button genau in dem Moment, in dem man draufdrückt */
-.theme-toggle:active {
-    background-color: #ee9b00;
-    transform: scale(0.98); /* Macht den Button beim Drücken minimal kleiner (cooler Klick-Effekt!) */
-}
-
-        /* --- SPEZIELLES STYLING NUR FÜR HANDYS (Bildschirme unter 600px) --- */
         @media (max-width: 600px) {
             nav {
-                flex-direction: column; /* Links untereinander anordnen */
+                flex-direction: column; 
                 gap: 12px;
                 padding: 20px 10px;
             }
-            
             nav a {
                 display: block;
                 width: 100%;
                 font-size: 1.1rem;
                 padding: 8px 0;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Trennlinie */
-            }
-
-            .theme-toggle {
-                margin-top: 10px;
-                width: 90%; /* Schön breit auf dem Smartphone */
-                text-align: center;
-                padding: 12px;
-                font-size: 1rem;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
             }
         }
 
         header {
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('bilder/vathy1.jpg') no-repeat center center/cover;
             color: white;
             text-align: center;
-            padding: 100px 20px;
+            padding: 120px 20px;
         }
         header h1 {
             font-size: 3rem;
             margin: 0;
         }
+        header p {
+            font-size: 1.3rem;
+            margin-top: 10px;
+        }
+        
         .container {
-            max-width: 800px;
+            max-width: 1000px;
             margin: 40px auto;
             padding: 0 20px;
         }
-        .welcome-box {
+        
+        .info-section {
             background-color: var(--card-bg);
-            padding: 30px;
+            padding: 35px;
             border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: var(--accent-color);
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 8px;
+            margin-top: 0;
+        }
+
+        /* CSS für die neuen Teaser-Karten */
+        .teaser-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .teaser-card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            text-decoration: none;
+            color: var(--text-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .teaser-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .teaser-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .teaser-content {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .teaser-content h3 {
+            margin-top: 0;
+            color: var(--accent-color);
+            font-size: 1.4rem;
+        }
+
+        .teaser-link {
+            margin-top: auto;
+            font-weight: bold;
+            color: var(--accent-color);
+            padding-top: 15px;
+        }
+
+        /* CSS für die Faktenbox */
+        .fact-box {
+            border-left: 5px solid var(--accent-color);
+        }
+
+        .fact-list {
+            padding-left: 20px;
+        }
+
+        .fact-list li {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        /* Responsive Design fürs Handy */
+        @media (max-width: 768px) {
+            .teaser-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -137,37 +185,61 @@
         <a href="index.html">Startseite</a>
         <a href="geschichte.html">Geschichte</a>
         <a href="sehenswertes.html">Sehenswürdigkeiten</a>
-        <button class="theme-toggle" id="modeBtn">🌓 Modus wechseln</button>
     </nav>
 
     <header>
-        <h1>Willkommen auf Ithaka</h1>
-        <p>Die legendäre Heimat des Odysseus – Ein unentdecktes Inselparadies</p>
+        <h1>Ithaka</h1>
+        <p>Auf den Spuren von Odysseus und antiken Geheimnissen</p>
     </header>
 
     <div class="container">
-        <div class="welcome-box">
-            <h2>Erkunde die Insel</h2>
-            <p>Ithaka ist weit mehr als nur ein Mythos aus der alten Literatur. Mit ihren tiefblauen Buchten, den dichten grünen Wäldern und den malerischen, traditionellen Dörfern zieht sie jeden Besucher sofort in ihren Bann.</p>
-            <p>Nutze das Menü oben, um mehr über die spannende Geschichte der Insel zu erfahren oder entdecke direkt die schönsten Sehenswürdigkeiten und Strände im Überblick.</p>
+        
+        <div class="info-section">
+            <h2>Willkommen auf Ithaka</h2>
+            <p>Ithaka ist weit mehr als nur eine wunderschöne griechische Insel im Ionischen Meer. Sie ist ein Symbol für Heimat, Sehnsucht und eines der größten Abenteuer der Weltliteratur: die Odyssee von Homer. Seit Jahrhunderten zieht diese Insel Entdecker, Historiker und Archäologen in ihren Bann, die alle nach den realen Spuren des legendären Königs Odysseus suchen.</p>
+            <p>Auf dieser Website laden wir dich ein, die faszinierende archäologische Geschichte der Insel zu erkunden, mystische Orte kennenzulernen und die malerische Schönheit des heutigen Ithakas zu entdecken.</p>
         </div>
+
+        <h2 style="text-align: center; margin-top: 50px; color: var(--accent-color); border: none;">Entdecke die Insel</h2>
+        
+        <div class="teaser-grid">
+            
+            <a href="geschichte.html" class="teaser-card">
+                <div class="teaser-image" style="background-image: url('bilder/geschichte_haupt.jpg');"></div>
+                <div class="teaser-content">
+                    <h3>Die Geschichte</h3>
+                    <p>Tauche ein in die Welt von Odysseus, antiken Ausgrabungen und den epischen Beschreibungen des Dichters Homer.</p>
+                    <span class="teaser-link">Mehr erfahren →</span>
+                </div>
+            </a>
+
+            <a href="sehenswertes.html" class="teaser-card">
+                <div class="teaser-image" style="background-image: url('bilder/vathy5.jpg');"></div>
+                <div class="teaser-content">
+                    <h3>Sehenswürdigkeiten</h3>
+                    <p>Erkunde malerische Fischerdörfer, traumhafte Naturbuchten, antike Ruinen und geschichtsträchtige Klöster.</p>
+                    <span class="teaser-link">Mehr erfahren →</span>
+                </div>
+            </a>
+
+        </div>
+
+        <div class="info-section fact-box" style="margin-top: 50px;">
+            <h2>Wusstest du schon? 🤔</h2>
+            <ul class="fact-list">
+                <li><strong>Fast zweigeteilt:</strong> Ithaka besteht aus einer Nord- und einer Südhälfte, die nur durch die hauchdünne, etwa 600 Meter breite Landzunge von Aetos miteinander verbunden sind.</li>
+                <li><strong>Ausgezeichneter Strand:</strong> Der berühmte <em>Gidaki Strand</em> wird in Reiseberichten regelmäßig zu einem der schönsten und saubersten Strände im gesamten Ionischen Meer gewählt.</li>
+                <li><strong>Spuren von Odysseus:</strong> Bis heute streiten sich Forscher weltweit, ob das moderne Ithaka wirklich das echte Zuhause von Odysseus ist – die Funde an der „Schule des Homer“ sprechen aber stark dafür!</li>
+            </ul>
+        </div>
+
     </div>
 
     <script>
-        const modeBtn = document.getElementById('modeBtn');
+        // Prüft beim Laden der Seite, ob der Dark Mode im Browser-Speicher aktiv ist
         if (localStorage.getItem('theme') === 'dark') {
             document.documentElement.setAttribute('data-theme', 'dark');
         }
-        modeBtn.addEventListener('click', () => {
-            let currentTheme = document.documentElement.getAttribute('data-theme');
-            if (currentTheme === 'dark') {
-                document.documentElement.removeAttribute('data-theme');
-                localStorage.setItem('theme', 'light');
-            } else {
-                document.documentElement.setAttribute('data-theme', 'dark');
-                localStorage.setItem('theme', 'dark');
-            }
-        });
     </script>
 
 </body>
