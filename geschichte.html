@@ -2,9 +2,8 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <meta name="google-site-verification" content="DEIN_CODE_VON_GOOGLE" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Die Geschichte von Ithaka - Mythos & Realität</title>
+    <title>Geschichte - Archäologie auf Ithaka</title>
     <style>
         :root {
             --bg-color: #f4f9f9;
@@ -56,89 +55,12 @@
             color: #94d2bd;
         }
 
-        .theme-toggle {
-            background-color: #e9d8a6;
-            color: #333;
-            border: none;
-            padding: 10px 16px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: 0.2s;
-            white-space: nowrap;
-        }
-       /* Für PCs: Färbt den Button, wenn die Maus darüber schwebt */
-@media (hover: hover) {
-    .theme-toggle:hover {
-        background-color: #ee9b00;
-    }
-}
-
-/* Für Handys & PCs: Färbt den Button genau in dem Moment, in dem man draufdrückt */
-.theme-toggle:active {
-    background-color: #ee9b00;
-    transform: scale(0.98); /* Macht den Button beim Drücken minimal kleiner (cooler Klick-Effekt!) */
-}
-
-        header {
-            background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('bilder/geschichte_haupt.jpg') no-repeat center center/cover;
-            color: white;
-            text-align: center;
-            padding: 80px 20px;
-        }
-        header h1 {
-            font-size: 2.8rem;
-            margin: 0;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-
-        .history-layout {
-            display: flex;
-            gap: 30px;
-            align-items: flex-start;
-        }
-
-        .left-column {
-            flex: 1.5;
-        }
-
-        .right-column {
-            flex: 1;
-        }
-
-        .history-content {
-            background-color: var(--card-bg);
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            margin-bottom: 20px;
-        }
-
-        h2 {
-            color: var(--accent-color);
-            margin-top: 0;
-            border-bottom: 2px solid var(--accent-color);
-            padding-bottom: 8px;
-        }
-
-        @media (max-width: 800px) {
-            .history-layout {
-                display: flex;
-                flex-direction: column;
-                gap: 20px;
-            }
-            
+        @media (max-width: 600px) {
             nav {
                 flex-direction: column; 
                 gap: 12px;
                 padding: 20px 10px;
             }
-            
             nav a {
                 display: block;
                 width: 100%;
@@ -146,70 +68,98 @@
                 padding: 8px 0;
                 border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
             }
+        }
 
-            .theme-toggle {
-                margin-top: 10px;
-                width: 90%; 
-                text-align: center;
-                padding: 12px;
-                font-size: 1rem;
-            }
+        header {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('bilder/geschichte_haupt.jpg') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+        }
+        header h1 {
+            font-size: 3rem;
+            margin: 0;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        
+        .info-section {
+            background-color: var(--card-bg);
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: var(--accent-color);
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 8px;
+            margin-top: 0;
+        }
+
+        .back-button {
+            display: inline-block;
+            background-color: var(--nav-bg);
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-button:hover {
+            background-color: #94d2bd;
+            color: #005f73;
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <a href="index.html">← Zurück zur Startseite</a>
+        <a href="index.html">Startseite</a>
         <a href="geschichte.html">Geschichte</a>
         <a href="sehenswertes.html">Sehenswürdigkeiten</a>
-        <button class="theme-toggle" id="modeBtn">🌓 Modus wechseln</button>
     </nav>
 
     <header>
-        <h1>Die Geschichte von Ithaka</h1>
-        <p>Von Homers berühmter Odyssee bis in die moderne Neuzeit</p>
+        <h1>Die Geschichte Ithakas</h1>
+        <p>Zwischen Mythos, heroischer Epik und realer Archäologie</p>
     </header>
 
     <div class="container">
-        <div class="history-layout">
-            
-            <div class="left-column">
-                <div class="history-content">
-                    <h2>Der Mythos von Odysseus</h2>
-                    <p>In der griechischen Mythologie ist Ithaka weltberühmt als die geliebte Heimat und das Königreich von Odysseus, dem scharfsinnigen Helden aus Homers weltbekanntem Epos „Die Odyssee“. Odysseus, bekannt für seine Listen – wie das berühmte Trojanische Pferd –, brach auf, um im Trojanischen Krieg zu kämpfen. Nach dem Fall Trojas sollte seine Heimreise jedoch zu einer der größten Abenteuergeschichten der Menschheit werden.</p>
-                    <p>Zehn lange Jahre lang irrte er über die Weltmeere, getrieben vom Zorn des Meeresgottes Poseidon. Auf seiner Irrfahrt musste er sich schrecklichen Gefahren stellen: Er bezwang den einäugigen Zyklopen Polyphem, widerstand dem betörenden, aber tödlichen Gesang der Sirenen, entkam den Meeresungeheuern Skylla und Charybdis und verbrachte Jahre in Gefangenschaft bei der Nymphe Kalypso auf der Insel Ogygia.</p>
-                    <p>Während seiner zwanzigjährigen Abwesenheit (zehn Jahre Krieg und zehn Jahre Irrfahrt) wurde sein Palast auf Ithaka von unverschämten Freiern belagert. Diese glaubten, Odysseus sei tot, verschwendeten seinen Besitz und bedrängten seine treue Ehefrau Penelope, einen von ihnen zu heriaten. Penelope erfand jedoch eine List: Sie erklärte, sich erst zu entscheiden, wenn sie ein Totenhemd für Odysseus’ alten Vater fertig gewebt habe. Nachts trennte sie das am Tag Gewebte heimlich wieder auf.</p>
-                    <p>Als Odysseus schließlich als Bettler verkleidet nach Ithaka zurückkehrte, erkannte ihn zunächst nur sein alter, treuer Hund Argos. Mit Hilfe seines Sohnes Telemachos und einem legendären Bogen-Wettstreit gelang es Odysseus schließlich, die Freier zu vertreiben, seine Identität zu offenbaren und den Thron seiner geliebten, schroffen Inselheimat wieder einzunehmen.</p>
-                </div>
-            </div>
-
-            <div class="right-column">
-                <div class="history-content">
-                    <h2>Archäologie und Realität</h2>
-                    <p>Bis heute beschäftigen sich Historiker und Archäologen weltweit mit der spannenden Frage, ob das antike Ithaka aus den Erzählungen Homers exakt mit der heutigen, modernen Insel übereinstimmt.</p>
-                    <p>Zahlreiche wissenschaftliche Ausgrabungen, vor allem im Norden der Insel, brachten bedeutende Funde ans Tageslicht. In der Loizos-Höhle nahe der Bucht von Polis entdeckte man antike Bronzedreifüße, Maskenfragmente und Inschriften mit der Aufschrift „Gelübde an Odysseus“. Diese Funde beweisen eindrucksvoll, dass Odysseus auf dieser Insel schon vor Jahrtausenden wie ein Gott oder Halbgott verehrt wurde und Ithaka ein bedeutendes kulturelles und religiöses Zentrum der Antike war.</p>
-                </div>
-            </div>
-
+        
+        <div class="info-section">
+            <h2>Die Heimat des Odysseus</h2>
+            <p>In den epischen Werken des antiken Dichters Homer – der <i>Ilias</i> und der <i>Odyssee</i> – ist Ithaka das sagenhafte Königreich des Odysseus. Nach dem Trojanischen Krieg irrte der Held zehn Jahre lang über die Meere, bevor er endlich in seine Heimat zurückkehrte. Homers detaillierte Beschreibungen der Landschaft prägen bis heute das Bild der Insel.</p>
         </div>
+
+        <div class="info-section">
+            <h2>Archäologische Entdeckungen</h2>
+            <p>Seit dem 19. Jahrhundert versuchen Archäologen, die Paläste und Orte aus Homers Erzählungen im echten Leben wiederzufinden. Bedeutende Ausgrabungen, unter anderem bei der sogenannten „Schule des Homer“ im Norden der Insel, brachten Funde aus der mykenischen Zeit (ca. 1600–1100 v. Chr.) ans Licht. Diese beweisen, dass Ithaka schon in der Bronzezeit ein wichtiges Machtzentrum war.</p>
+        </div>
+
+        <div class="info-section">
+            <h2>Historischer Verlauf</h2>
+            <p>Nach der Antike teilte Ithaka das Schicksal der anderen Ionischen Inseln. Sie stand nacheinander unter römischer, byzantinischer und schließlich jahrhundertelang unter venezianischer Herrschaft. Die Venezianer prägten vor allem die Architektur der Hauptstadt Vathy. Im Jahr 1864 wurde Ithaka schließlich offiziell Teil des modernen griechischen Staates.</p>
+        </div>
+
+        <center>
+            <a href="index.html" class="back-button">← Zurück zur Startseite</a>
+        </center>
+
     </div>
 
     <script>
-        const modeBtn = document.getElementById('modeBtn');
+        // Prüft beim Laden der Seite automatisch, ob der Dark Mode auf der Startseite aktiviert wurde
         if (localStorage.getItem('theme') === 'dark') {
             document.documentElement.setAttribute('data-theme', 'dark');
         }
-        modeBtn.addEventListener('click', () => {
-            let currentTheme = document.documentElement.getAttribute('data-theme');
-            if (currentTheme === 'dark') {
-                document.documentElement.removeAttribute('data-theme');
-                localStorage.setItem('theme', 'light');
-            } else {
-                document.documentElement.setAttribute('data-theme', 'dark');
-                localStorage.setItem('theme', 'dark');
-            }
-        });
     </script>
 
 </body>
